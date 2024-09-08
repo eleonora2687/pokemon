@@ -1,4 +1,4 @@
-@props(['pokemon', 'is_main_view'])
+@props(['pokemon'])
 <div class="col-md-12 rounded-1 m-3">
     <div class="card">
         <div class="row g-0">
@@ -48,10 +48,6 @@
                         <p class="card-text">Height: {{ $pokemon->height }} m</p>
                         <p class="card-text">Weight: {{ $pokemon->weight }} kg</p>
                     </div>
-
-                    @if ($is_main_view)
-                        @livewire('favorite-pokemon', ['pokemon'=>$pokemon, 'is_favorite'=> $pokemon->is_favorite])
-                    @endif
                 </div>
             </div>
         </div>
