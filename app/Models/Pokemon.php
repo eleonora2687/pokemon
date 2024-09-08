@@ -16,6 +16,5 @@ class Pokemon extends Model
         'weight',
         'height',
         'stats',
-        'is_favorite'
     ];
 }

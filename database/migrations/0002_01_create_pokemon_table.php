@@ -25,7 +25,6 @@ return new class extends Migration
             $table->integer('sp_attack')->default(0);
             $table->integer('sp_defense')->default(0);
             $table->integer('speed')->default(0);
-            $table->boolean('is_favorite')->default(false);
             $table->timestamps();
         });
     }
