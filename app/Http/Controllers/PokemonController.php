@@ -24,12 +24,6 @@ class PokemonController extends Controller
         return view('all-pokemon', ['pokemons' => $pokemon]);
     }
 
-    public function getAllFavoritePokemon()
-    {
-        $pokemon = Pokemon::where('is_favorite', true)->orderBy('name')->paginate(20);
-        return view('all-favorite-pokemon', ['pokemons' => $pokemon]);
-    }
-
     public function getPokemonFromAPI(string $name)
     {
         try {

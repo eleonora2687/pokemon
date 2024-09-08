@@ -70,7 +70,6 @@ class PokemonSeeder extends Seeder
                     'defense' => $defense,
                     'attack' => $attack,
                     'hp' => $hp,
-                    'is_favorite' => false,
                 ]);
             }
     

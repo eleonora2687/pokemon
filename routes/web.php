@@ -10,5 +10,4 @@ Route::get('/', function () {
 
 
 Route::get('/all-pokemon', [PokemonController::class, 'getAllPokemon'])->name('all-pokemon');
-
 Route::get('/pokemon/{name}', [PokemonController::class, 'getPokemonFromDB'])->name('single-pokemon');
