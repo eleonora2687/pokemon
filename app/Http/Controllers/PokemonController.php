@@ -24,12 +24,6 @@ class PokemonController extends Controller
         return view('all-pokemon', ['pokemons' => $pokemon]);
     }
 
-    public function getAllFavoritePokemon()
-    {
-        $pokemon = Pokemon::where('is_favorite', true)->orderBy('name')->paginate(20);
-        return view('all-favorite-pokemon', ['pokemons' => $pokemon]);
-    }
-
     public function getPokemonFromAPI(string $name)
     {
         try {
@@ -48,23 +42,5 @@ class PokemonController extends Controller
         $pokemon = Pokemon::where('name', $name)->first();
 
         return view('single-pokemon', ['pokemon' => $pokemon]);
-    }
-
-    public function addToFavorites(Pokemon $pokemon)
-    {
-        // Update the Pokémon's is_favorite attribute
-        $pokemon->is_favorite = true;
-        $pokemon->save();
-
-        return response()->json(['message' => 'Pokemon added to favorites']);
-    }
-
-    public function removeFromFavorites(Pokemon $pokemon)
-    {
-        // Update the Pokémon's is_favorite attribute
-        $pokemon->is_favorite = false;
-        $pokemon->save();
-
-        return response()->json(['message' => 'Pokemon removed from favorites']);
     }
 }
