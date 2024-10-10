@@ -44,7 +44,7 @@
                         <div class="progress-bar bg-light" style="width: {{ $pokemon->speed }}%"></div>
                     </div>
                     <label for="speedbar">Speed: {{ $pokemon->speed }}</label>
-                    <div class="m-3">
+                    <div class="m-2">
                         <p class="card-text">Height: {{ $pokemon->height }} m</p>
                         <p class="card-text">Weight: {{ $pokemon->weight }} kg</p>
                     </div>
