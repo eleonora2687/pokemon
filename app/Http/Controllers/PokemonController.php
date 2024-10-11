@@ -69,20 +69,21 @@ class PokemonController extends Controller
     }
 
     public function searchPokemon(Request $request)
-    {
-        $query = $request->input('query');
+{
+    $query = $request->input('query');
 
-        // Validate the query to prevent unnecessary errors
-        if (empty($query)) {
-            return redirect()->back()->with('error', 'Search query cannot be empty');
-        }
-
-        // Find Pokémon whose names start with the search query, and paginate results
-        $pokemons = Pokemon::where('name', 'like', $query . '%')->paginate(20);
-
-        // Return the view with the filtered Pokémon and pagination
-        return view('search-pokemon', compact('pokemons'));
+    // Validate the query to prevent unnecessary errors
+    if (empty($query)) {
+        return redirect()->back()->with('error', 'Search query cannot be empty');
     }
+
+    // Find Pokémon whose names start with the search query, and paginate results
+    $pokemons = Pokemon::where('name', 'like', $query . '%')->paginate(20);
+
+    // Pass the query to the view for display
+    return view('search-pokemon', compact('pokemons', 'query'));
+}
+
 
 
 

@@ -4,29 +4,40 @@ document.addEventListener('DOMContentLoaded', function () {
     const desktopSearchButton = document.getElementById('search-button-desktop');
     const mobileSearchButton = document.getElementById('search-button-mobile');
 
-    // Check if elements exist and only then add event listeners
+    // Function to handle search
+    function triggerSearch(query) {
+        window.location.href = `/search-pokemon?query=${query}`;
+    }
+
+    // Add event listeners for desktop
     if (desktopSearchInput && desktopSearchButton) {
-        desktopSearchInput.addEventListener('input', function () {
-            performSearch(this.value);
+        desktopSearchInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission
+                triggerSearch(this.value); // Trigger search when Enter is pressed
+            }
         });
 
         desktopSearchButton.addEventListener('click', function () {
-            const query = desktopSearchInput.value;
-            window.location.href = `/search-pokemon?query=${query}`;
+            triggerSearch(desktopSearchInput.value);
         });
     }
 
+    // Add event listeners for mobile
     if (mobileSearchInput && mobileSearchButton) {
-        mobileSearchInput.addEventListener('input', function () {
-            performSearch(this.value);
+        mobileSearchInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission
+                triggerSearch(this.value); // Trigger search when Enter is pressed
+            }
         });
 
         mobileSearchButton.addEventListener('click', function () {
-            const query = mobileSearchInput.value;
-            window.location.href = `/search-pokemon?query=${query}`;
+            triggerSearch(mobileSearchInput.value);
         });
     }
 });
+
 
 function performSearch(query) {
     if (query.length >= 1) {
