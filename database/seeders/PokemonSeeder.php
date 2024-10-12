@@ -60,8 +60,8 @@ class PokemonSeeder extends Seeder
 
                 // Update existing Pokémon data
                 $new_pokemon->update([
-                    'weight' => $pokemon->weight/10,
-                    'height' => $pokemon->height/10,
+                    'weight' => $pokemon->weight / 10,
+                    'height' => $pokemon->height / 10,
                     'image' => $pokemon->sprites->front_default,
                     'types' => json_encode($pokemon->types),
                     'speed' => $speed,
@@ -69,9 +69,10 @@ class PokemonSeeder extends Seeder
                     'sp_attack' => $sp_attack,
                     'defense' => $defense,
                     'attack' => $attack,
-                    'hp' => $hp,
+                    'hp' => $hp,  // Ensure hp is updated here
                     'is_favorite' => false,
                 ]);
+                
             }
     
         } catch (\Exception $e) {

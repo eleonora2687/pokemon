@@ -26,18 +26,19 @@
                 </div>
             </div>
         </div>
-    
+</div>
 
         <div class="col-md-12">
             @if ($pokemons->isEmpty())
-                <h2>No Pokémon matches the results.</h2>
-            @else
-                <h2 class="text-center">Search results for "{{ request()->input('query') }}" ({{ $pokemons->total() }}):</h2>
-                @foreach ($pokemons as $pokemon)
-                    <x-pokemon-card :pokemon="$pokemon" :is_main_view="true" />
-                @endforeach
-                {{ $pokemons->links() }} <!-- Pagination links -->
-            @endif
+    <h2>No Pokémon matches the results.</h2>
+@else
+    <h2 class="text-center">Search results for "{{ request()->input('query') }}" ({{ $pokemons->total() }}):</h2>
+    @foreach ($pokemons as $pokemon)
+    <x-pokemon-card :pokemon="$pokemon" :is_main_view="true" :maxHPPokemon="$maxHPPokemon" :maxAttack="$maxAttack" :maxDefense="$maxDefense" :maxSPAttack="$maxSPAttack" :maxSPDefense="$maxSPDefense" :maxSpeed="$maxSpeed"/>
+    @endforeach
+    {{ $pokemons->appends(request()->except('page'))->links() }} <!-- Pagination links -->
+@endif
+
         </div>
         
     </div>

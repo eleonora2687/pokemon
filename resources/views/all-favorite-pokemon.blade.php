@@ -38,7 +38,7 @@
       
           @else
               @foreach ($pokemons as $pokemon)
-                  <x-pokemon-card :pokemon="$pokemon" :is_main_view="true" />
+              <x-pokemon-card :pokemon="$pokemon" :is_main_view="true" :maxHPPokemon="$maxHPPokemon" :maxAttack="$maxAttack" :maxDefense="$maxDefense" :maxSPAttack="$maxSPAttack" :maxSPDefense="$maxSPDefense" :maxSpeed="$maxSpeed"/>
               @endforeach
           
           {{ $pokemons->links() }} 
